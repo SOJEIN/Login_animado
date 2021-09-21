@@ -32,3 +32,29 @@ body.addEventListener('mousemove',(movimiento)=>{
  usuario.addEventListener('blur',()=>{
     seguirMouse=true;
 })
+
+password.addEventListener('focus',()=>{
+    seguirMouse=false;
+    let contador=1;
+    const cubrir_ojos = setInterval(()=>{
+        animado.src='img/password/'+contador+'.png'
+        if(contador < 8 ){
+            contador++;
+        }else{
+            clearInterval(cubrir_ojos)
+        }
+    },60)
+})
+
+password.addEventListener('blur',()=>{
+    seguirMouse=false;
+    let contador=7;
+    const cubrir_ojos = setInterval(()=>{
+        animado.src='img/password/'+contador+'.png'
+        if(contador > 1 ){
+            contador--;
+        }else{
+            clearInterval(cubrir_ojos)
+        }
+    },60)
+})
